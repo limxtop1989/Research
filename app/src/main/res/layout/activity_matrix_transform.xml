@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.limxtop.research.draw.MatrixTransformActivity">
+
+    <com.limxtop.research.draw.MatrixView
+        android:id="@+id/matrix_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/pink" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+            <RadioGroup
+                android:id="@+id/radio_group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <RadioButton
+                    android:id="@+id/translate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/translate" />
+
+                <RadioButton
+                    android:id="@+id/rotate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/rotate" />
+
+                <RadioButton
+                    android:id="@+id/rotate_translate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/rotate_translate" />
+
+                <RadioButton
+                    android:id="@+id/scale"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/scale" />
+
+                <RadioButton
+                    android:id="@+id/skew_horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/skew_horizontal" />
+
+                <RadioButton
+                    android:id="@+id/skew_vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/skew_vertical" />
+
+                <RadioButton
+                    android:id="@+id/skew"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/skew" />
+
+                <RadioButton
+                    android:id="@+id/symmetry_horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/symmetry_horizontal" />
+
+                <RadioButton
+                    android:id="@+id/symmetry_vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/symmetry_vertical" />
+
+                <RadioButton
+                    android:id="@+id/symmetry"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/symmetry" />
+            </RadioGroup>
+    </LinearLayout>
+</RelativeLayout>
