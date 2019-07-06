@@ -50,5 +50,6 @@
     <string name="bind_service">bind service</string>
     <string name="unbind_service">unbind service</string>
     <string name="touch_event_activity">touch event</string>
-    <string name="take_photo">take photo</string>
+    <string name="take_photo_thumbnail">thumbnail</string>
+    <string name="take_photo_full_size">full size</string>
 </resources>
