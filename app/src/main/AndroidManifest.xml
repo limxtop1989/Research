@@ -48,8 +48,8 @@
         <activity android:name=".com.limxtop.research.service.PureServiceActivity" />
         <activity
             android:name=".touch.TouchEventActivity"
-            android:label="@string/touch_event_activity"></activity>
-        <activity android:name=".camera.TakePhotoActivity"></activity>
+            android:label="@string/touch_event_activity" />
+        <activity android:name=".camera.TakePhotoActivity" />
 
         <provider
             android:name="androidx.core.content.FileProvider"
@@ -58,8 +58,10 @@
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths"></meta-data>
+                android:resource="@xml/file_paths" />
         </provider>
+
+        <activity android:name=".camera.VideoActivity"></activity>
     </application>
 
 </manifest>

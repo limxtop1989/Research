@@ -13,6 +13,7 @@ import com.limxtop.research.animator.base.AnimatorCategoryActivity;
 import com.limxtop.research.animator.base.RecyclerViewSImpleAdapter;
 import com.limxtop.research.animator.base.ViewEntry;
 import com.limxtop.research.camera.TakePhotoActivity;
+import com.limxtop.research.camera.VideoActivity;
 import com.limxtop.research.com.limxtop.research.service.PureServiceActivity;
 import com.limxtop.research.com.limxtop.research.service.ServiceLifeCycleActivity;
 import com.limxtop.research.draw.MatrixTransformActivity;
@@ -47,7 +48,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
         datas.add(new ViewEntry("Service", ServiceLifeCycleActivity.class));
         datas.add(new ViewEntry("PureService", PureServiceActivity.class));
         datas.add(new ViewEntry("TouchEvent", TouchEventActivity.class));
-        datas.add(new ViewEntry("Tack Photo", TakePhotoActivity.class));
+        datas.add(new ViewEntry("Take Photo", TakePhotoActivity.class));
+        datas.add(new ViewEntry("Take Video", VideoActivity.class));
         return datas;
     }
 
