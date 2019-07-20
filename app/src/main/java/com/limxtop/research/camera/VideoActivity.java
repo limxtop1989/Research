@@ -69,5 +69,9 @@ public class VideoActivity extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void onPrepared(MediaPlayer mp) {
+
     }
 }
+
+
+

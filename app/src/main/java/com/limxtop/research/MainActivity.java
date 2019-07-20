@@ -17,6 +17,7 @@ import com.limxtop.research.camera.VideoActivity;
 import com.limxtop.research.com.limxtop.research.service.PureServiceActivity;
 import com.limxtop.research.com.limxtop.research.service.ServiceLifeCycleActivity;
 import com.limxtop.research.draw.MatrixTransformActivity;
+import com.limxtop.research.draw.StatisticsActivity;
 import com.limxtop.research.touch.TouchEventActivity;
 
 import java.util.ArrayList;
@@ -45,6 +46,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         List<ViewEntry> datas = new ArrayList<>(10);
         datas.add(new ViewEntry("Animate", AnimatorCategoryActivity.class));
         datas.add(new ViewEntry("Draw", MatrixTransformActivity.class));
+        datas.add(new ViewEntry("Statistics", StatisticsActivity.class));
         datas.add(new ViewEntry("Service", ServiceLifeCycleActivity.class));
         datas.add(new ViewEntry("PureService", PureServiceActivity.class));
         datas.add(new ViewEntry("TouchEvent", TouchEventActivity.class));

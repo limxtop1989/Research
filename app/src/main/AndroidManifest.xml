@@ -61,7 +61,8 @@
                 android:resource="@xml/file_paths" />
         </provider>
 
-        <activity android:name=".camera.VideoActivity"></activity>
+        <activity android:name=".camera.VideoActivity" />
+        <activity android:name=".draw.StatisticsActivity"></activity>
     </application>
 
 </manifest>
