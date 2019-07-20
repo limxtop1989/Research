@@ -62,7 +62,8 @@
         </provider>
 
         <activity android:name=".camera.VideoActivity" />
-        <activity android:name=".draw.StatisticsActivity"></activity>
+        <activity android:name=".draw.StatisticsActivity" />
+        <activity android:name=".touch.translation.TranslateActivity"></activity>
     </application>
 
 </manifest>

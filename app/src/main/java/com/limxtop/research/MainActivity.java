@@ -19,6 +19,7 @@ import com.limxtop.research.com.limxtop.research.service.ServiceLifeCycleActivit
 import com.limxtop.research.draw.MatrixTransformActivity;
 import com.limxtop.research.draw.StatisticsActivity;
 import com.limxtop.research.touch.TouchEventActivity;
+import com.limxtop.research.touch.translation.TranslateActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,6 +53,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         datas.add(new ViewEntry("TouchEvent", TouchEventActivity.class));
         datas.add(new ViewEntry("Take Photo", TakePhotoActivity.class));
         datas.add(new ViewEntry("Take Video", VideoActivity.class));
+        datas.add(new ViewEntry("Translate", TranslateActivity.class));
         return datas;
     }
 
