@@ -63,7 +63,8 @@
 
         <activity android:name=".camera.VideoActivity" />
         <activity android:name=".draw.StatisticsActivity" />
-        <activity android:name=".touch.translation.TranslateActivity"></activity>
+        <activity android:name=".touch.translation.TranslateActivity" />
+        <activity android:name=".draw.CanvasActivity"></activity>
     </application>
 
 </manifest>

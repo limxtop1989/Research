@@ -16,6 +16,7 @@ import com.limxtop.research.camera.TakePhotoActivity;
 import com.limxtop.research.camera.VideoActivity;
 import com.limxtop.research.com.limxtop.research.service.PureServiceActivity;
 import com.limxtop.research.com.limxtop.research.service.ServiceLifeCycleActivity;
+import com.limxtop.research.draw.CanvasActivity;
 import com.limxtop.research.draw.MatrixTransformActivity;
 import com.limxtop.research.draw.StatisticsActivity;
 import com.limxtop.research.touch.TouchEventActivity;
@@ -54,6 +55,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         datas.add(new ViewEntry("Take Photo", TakePhotoActivity.class));
         datas.add(new ViewEntry("Take Video", VideoActivity.class));
         datas.add(new ViewEntry("Translate", TranslateActivity.class));
+        datas.add(new ViewEntry("Canvas", CanvasActivity.class));
         return datas;
     }
 
