@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 
 import com.limxtop.research.R;
+import com.limxtop.research.animator.property.ZoomActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,6 +37,7 @@ public class AnimatorCategoryActivity extends Activity implements View.OnClickLi
         datas.add(new ViewEntry("Path Animator", PathAnimatorActivity.class));
         datas.add(new ViewEntry("View Animator", ViewAnimatorActivity.class));
         datas.add(new ViewEntry("Bezier Animator", BezierCurveAnimatorActivity.class));
+        datas.add(new ViewEntry("Zoom", ZoomActivity.class));
         // TODO add View Property Animator
         return datas;
     }

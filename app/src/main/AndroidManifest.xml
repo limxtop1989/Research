@@ -14,6 +14,16 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <activity
+            android:name=".animator.property.ZoomActivity"
+            android:label="@string/title_activity_zoom">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -64,7 +74,7 @@
         <activity android:name=".camera.VideoActivity" />
         <activity android:name=".draw.StatisticsActivity" />
         <activity android:name=".touch.translation.TranslateActivity" />
-        <activity android:name=".draw.CanvasActivity"></activity>
+        <activity android:name=".draw.CanvasActivity" />
     </application>
 
 </manifest>

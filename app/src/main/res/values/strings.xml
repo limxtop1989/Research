@@ -53,4 +53,5 @@
     <string name="take_photo_thumbnail">thumbnail</string>
     <string name="take_photo_full_size">full size</string>
     <string name="take_video">take video</string>
+    <string name="title_activity_zoom">ZoomActivity</string>
 </resources>

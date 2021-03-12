@@ -12,6 +12,7 @@ import android.view.View;
 import com.limxtop.research.animator.base.AnimatorCategoryActivity;
 import com.limxtop.research.animator.base.RecyclerViewSImpleAdapter;
 import com.limxtop.research.animator.base.ViewEntry;
+import com.limxtop.research.animator.property.ZoomActivity;
 import com.limxtop.research.camera.TakePhotoActivity;
 import com.limxtop.research.camera.VideoActivity;
 import com.limxtop.research.com.limxtop.research.service.PureServiceActivity;
