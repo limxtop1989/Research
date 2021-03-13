@@ -27,7 +27,7 @@ public class RecyclerViewSImpleAdapter extends RecyclerView.Adapter<RecyclerView
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.view_simple_view_holder, parent, false);
-        View text = itemView.findViewById(R.id.text);
+        View text = itemView.findViewById(R.id.reveal);
         text.setOnClickListener(mOnClickListner);
         return new ViewHolder(itemView);
     }
@@ -49,7 +49,7 @@ public class RecyclerViewSImpleAdapter extends RecyclerView.Adapter<RecyclerView
 
         public ViewHolder(View itemView) {
             super(itemView);
-            mTextView = (TextView) itemView.findViewById(R.id.text);
+            mTextView = (TextView) itemView.findViewById(R.id.reveal);
         }
     }
 }

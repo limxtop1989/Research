@@ -54,4 +54,8 @@
     <string name="take_photo_full_size">full size</string>
     <string name="take_video">take video</string>
     <string name="title_activity_zoom">ZoomActivity</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hide">hide</string>
+    <string name="reveal">reveal</string>
 </resources>
