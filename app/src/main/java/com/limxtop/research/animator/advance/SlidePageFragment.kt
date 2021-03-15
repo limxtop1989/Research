@@ -1,5 +1,4 @@
 package com.limxtop.research.animator.advance
-
 import android.animation.Animator
 import android.os.Bundle
 import androidx.fragment.app.Fragment
