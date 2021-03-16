@@ -47,7 +47,13 @@ class SlidePageFragment : Fragment() {
         updateButtonText()
         animationView = view.findViewById(R.id.circular_animation)
 
-        button?.setOnClickListener(clickListener)
+        // TODO: Why this doesn't work.
+        button?.setOnClickListener(View.OnClickListener() { _ ->
+            {
+                circularAnimate(animationView!!)
+            }
+        })
+        button?.setOnClickListener(View.OnClickListener() { _ -> circularAnimate(animationView!!) })
     }
 
     private val clickListener = View.OnClickListener { view ->
