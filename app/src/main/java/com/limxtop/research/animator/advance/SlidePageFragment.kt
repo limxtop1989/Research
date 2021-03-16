@@ -1,12 +1,13 @@
 package com.limxtop.research.animator.advance
 import android.animation.Animator
+import android.animation.AnimatorListenerAdapter
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewAnimationUtils
 import android.view.ViewGroup
-import android.widget.TextView
+import android.widget.Button
 import com.limxtop.research.R
 import kotlin.math.hypot
 
@@ -23,6 +24,10 @@ class SlidePageFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
 
+    private var isViewHidden: Boolean = false
+    private var button: Button? = null
+    private var animationView: View? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -38,18 +43,44 @@ class SlidePageFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val reveal = view.findViewById<TextView>(R.id.hide)
-        reveal.setOnClickListener(View.OnClickListener {
-            reveal: View -> hide(reveal)
-           })
+        button = view.findViewById(R.id.button)
+        updateButtonText()
+        animationView = view.findViewById(R.id.circular_animation)
+
+        button?.setOnClickListener(clickListener)
     }
 
-    private fun hide(view: View) {
+    private val clickListener = View.OnClickListener { view ->
+        circularAnimate(animationView!!)
+    }
+
+    private fun updateButtonText() {
+        if (isViewHidden) {
+            button?.text = "Reveal"
+        } else {
+            button?.text = "Hide"
+        }
+    }
+
+    private fun circularAnimate(view: View) {
         val cx: Int = view.width / 2
         val cy: Int = view.height / 2
-        val originalRadius: Float = hypot(cx.toDouble(), cy.toDouble()).toFloat()
-        val animator: Animator = ViewAnimationUtils.createCircularReveal(view, cx, cy, originalRadius, 0f).also {
-//            it.addListener(AnimatorListenerAdapter)
+        val startRadius: Float = if (isViewHidden) { 0f } else { hypot(cx.toDouble(), cy.toDouble()).toFloat() }
+        val endRadius: Float = if (isViewHidden) { hypot(cx.toDouble(), cy.toDouble()).toFloat() } else { 0f }
+        val animator: Animator = ViewAnimationUtils.createCircularReveal(view, cx, cy, startRadius, endRadius).also {
+            it.addListener(object : AnimatorListenerAdapter() {
+                override fun onAnimationStart(animation: Animator?) {
+                    super.onAnimationStart(animation)
+                    animationView?.visibility = View.VISIBLE
+                }
+
+                override fun onAnimationEnd(animation: Animator?) {
+                    super.onAnimationEnd(animation)
+                    animationView?.visibility = if (isViewHidden) View.VISIBLE else View.GONE
+                    isViewHidden = !isViewHidden
+                    updateButtonText()
+                }
+            })
             it.duration = 2000
             it.start()
         }
