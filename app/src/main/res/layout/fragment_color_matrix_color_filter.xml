@@ -1,27 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".graphic.ColorMatrixColorFilterFragment">
 
     <ImageView
         android:id="@+id/src"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
+        android:src="@drawable/cat"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/dst"
+        app:layout_constraintBottom_toTopOf="@id/barrier"
+        app:layout_constraintHorizontal_weight="1" />
 
     <ImageView
         android:id="@+id/dst"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/cat"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/src"
+        app:layout_constraintBottom_toTopOf="@id/barrier"
+        app:layout_constraintHorizontal_weight="1" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        app:barrierMargin="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:constraint_referenced_ids="src,dst"/>
+
+    <TextView
+        android:id="@+id/hue_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"/>
+        android:text="@string/hue_label"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/barrier" />
 
-    <SeekBar
+    <androidx.appcompat.widget.AppCompatSeekBar
+        android:id="@+id/hue"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        app:layout_constraintStart_toEndOf="@id/hue_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/barrier" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/hue_barrier"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="hue_label, hue"/>
+
+    <TextView
+        android:id="@+id/saturation_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/saturation_label"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/hue_barrier" />
+
+    <androidx.appcompat.widget.AppCompatSeekBar
+        android:id="@+id/saturation"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        app:layout_constraintStart_toEndOf="@id/saturation_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/hue_barrier" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/saturation_barrier"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="saturation_label, saturation"/>
+
+    <TextView
+        android:id="@+id/brightness_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/brightness_label"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/saturation_barrier" />
+
+    <androidx.appcompat.widget.AppCompatSeekBar
+        android:id="@+id/brightness"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:min="0"
+        android:progress="5"
+        android:max="10"
+        app:layout_constraintStart_toEndOf="@id/brightness_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/saturation_barrier" />
 
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
