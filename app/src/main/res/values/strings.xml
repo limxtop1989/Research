@@ -61,4 +61,5 @@
     <string name="hue_label">hue</string>
     <string name="saturation_label">saturation</string>
     <string name="brightness_label">brightness</string>
+    <string name="heart">heart</string>
 </resources>
