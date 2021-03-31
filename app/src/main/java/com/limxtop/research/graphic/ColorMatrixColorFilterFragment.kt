@@ -1,6 +1,5 @@
 package com.limxtop.research.graphic
 
-import android.graphics.Color
 import android.graphics.ColorMatrix
 import android.graphics.ColorMatrixColorFilter
 import android.os.Bundle
@@ -37,6 +36,7 @@ class ColorMatrixColorFilterFragment : Fragment(), SeekBar.OnSeekBarChangeListen
     }
 
     private lateinit var mDst: ImageView
+
     private lateinit var mHue: SeekBar
     private lateinit var mSaturation: SeekBar
     private lateinit var mBrightness: SeekBar
@@ -85,31 +85,47 @@ class ColorMatrixColorFilterFragment : Fragment(), SeekBar.OnSeekBarChangeListen
     }
 
     override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-        when(seekBar?.id) {
-
-            R.id.hue -> {
-
-            }
-
-            R.id.saturation -> {
-                updateDstImage(1f, 1f, progress as Float)
-            }
-
-            R.id.brightness -> {
-                updateDstImage(1f, 1f, progress / 5f)
-            }
-        }
+        updateDstImage(mHue.progress.toFloat(), mSaturation.progress.toFloat() / 20f,
+                mBrightness.progress / 10f)
+//        when(seekBar?.id) {
+//
+//            R.id.hue -> {
+//
+//            }
+//
+//            R.id.saturation -> {
+//                updateDstImage(mHue.progress as Float, mSaturation.progress as Float, progress as Float)
+//            }
+//
+//            R.id.brightness -> {
+//                updateDstImage(1f, 1f, progress / 5f)
+//            }
+//        }
     }
 
-    private fun updateDstImage(hueValue: Float, saturation: Float, brightness: Float) {
+    /**
+     * @param degrees Value range [0, 360]
+     * @param saturation [0, 1]
+     * @param brightness []
+     */
+    private fun updateDstImage(degrees: Float, saturation: Float, brightness: Float) {
+        mHueMatrix.reset()
+        mHueMatrix.setRotate(0, degrees)
+        mHueMatrix.setRotate(1, degrees)
+        mHueMatrix.setRotate(2, degrees)
+
+        mSaturationMatrix.reset()
+        mSaturationMatrix.setSaturation(saturation)
 
         mBrightnessMatrix.reset()
         mBrightnessMatrix.setScale(brightness, brightness, brightness, 1f)
 
         mColorMatrix.reset()
+        mColorMatrix.postConcat(mHueMatrix)
+        mColorMatrix.postConcat(mSaturationMatrix)
         mColorMatrix.postConcat(mBrightnessMatrix)
-        mDst.colorFilter = ColorMatrixColorFilter(mColorMatrix)
 
+        mDst.colorFilter = ColorMatrixColorFilter(mColorMatrix)
         mDst.invalidate()
     }
 
