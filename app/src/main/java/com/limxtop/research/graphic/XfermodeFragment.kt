@@ -10,6 +10,7 @@ import android.widget.Button
 import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import com.limxtop.research.R
+import kotlin.math.min
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -56,6 +57,23 @@ class XfermodeFragment : Fragment() {
     }
 
     private fun action(view: View) {
+        circle(view)
+    }
+
+    private fun circle(view: View) {
+        val width: Int = mCat!!.width
+        val height: Int = mCat!!.height
+
+        val maskBitmap: Bitmap = Bitmap.createBitmap(mCat!!.width, mCat!!.height, Bitmap.Config.ARGB_8888)
+        val canvas: Canvas = Canvas(maskBitmap)
+        val paint: Paint = Paint(Paint.ANTI_ALIAS_FLAG or Paint.DITHER_FLAG or Paint.FILTER_BITMAP_FLAG)
+        canvas.drawCircle(width / 2f, height / 2f, min(width / 2f, height / 2f), paint)
+        val resultBitmap = compose(maskBitmap)
+
+        mCat?.setImageBitmap(resultBitmap)
+    }
+
+    private fun heart(view: View) {
         val maskBitmap: Bitmap = Bitmap.createBitmap(mCat!!.measuredWidth, mCat!!.measuredHeight, Bitmap.Config.ARGB_8888)
         val canvas: Canvas = Canvas(maskBitmap)
 
@@ -63,6 +81,11 @@ class XfermodeFragment : Fragment() {
         vectorDrawable.setBounds(0, 0, mCat!!.measuredWidth, mCat!!.measuredHeight)
         vectorDrawable.draw(canvas)
 
+        val resultBitmap = compose(maskBitmap)
+        mCat?.setImageBitmap(resultBitmap)
+    }
+
+    private fun compose(maskBitmap: Bitmap): Bitmap {
         val resultBitmap: Bitmap = Bitmap.createBitmap(mCat!!.measuredWidth, mCat!!.measuredHeight, Bitmap.Config.ARGB_8888)
         val canvas2: Canvas = Canvas(resultBitmap)
         val paint: Paint = Paint()
@@ -73,8 +96,7 @@ class XfermodeFragment : Fragment() {
         paint.xfermode = PorterDuffXfermode(mode)
 
         canvas2.drawBitmap(source, 0f, 0f, paint)
-        mCat?.setImageBitmap(resultBitmap)
-
+        return resultBitmap
     }
 
 
