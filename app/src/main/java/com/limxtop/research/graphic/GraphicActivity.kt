@@ -12,7 +12,7 @@ class GraphicActivity : AppCompatActivity() {
         setContentView(R.layout.activity_graphic)
         val fm: FragmentManager = supportFragmentManager
         val transaction: FragmentTransaction = fm.beginTransaction()
-        transaction.add(R.id.fragment_container, XfermodeFragment())
+        transaction.add(R.id.fragment_container, BitmapTransitionFragment())
         transaction.commit()
     }
 }
