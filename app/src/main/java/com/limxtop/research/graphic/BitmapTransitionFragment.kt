@@ -56,25 +56,40 @@ class BitmapTransitionFragment : Fragment() {
 
     private fun decodeBitmap() {
         RLog.d("hello2")
-        val source: Bitmap = BitmapFactory.decodeResource(resources, R.drawable.cat)
-        val width: Int? = mImageView?.width
+        val source: Bitmap = BitmapFactory.decodeResource(resources, R.drawable.ic_launcher)
         val measureWidth: Int = mImageView!!.measuredWidth
         val measureHeight: Int = mImageView!!.measuredHeight
+
+
+
+//        val viewM: Matrix  = mImageView!!.getImageMatrix()
+//        val rotateM: Matrix = Matrix()
+//        rotateM.postTranslate(-source.width / 2f, -source.height / 2f)
+//        viewM.postConcat(rotateM)
+//        rotateM.postRotate(90f)
+//        viewM.postConcat(rotateM)
+//        val viewRect: RectF = RectF(0f, 0f, measureWidth.toFloat(), measureHeight.toFloat())
+//        val drawableRect: RectF = RectF(0f, 0f, source.width.toFloat(), source.height.toFloat())
+//        mapM.setRectToRect(drawableRect, viewRect, Matrix.ScaleToFit.START);
+//        mapM.postRotate(90f)
+
+        val viewM: Matrix  = mImageView!!.getImageMatrix()
+        val rotateM: Matrix = Matrix()
+        viewM.postTranslate(-source.width / 2f, -source.height / 2f)
+//        viewM.postTranslate(source.width / 2f, source.height / 2f)
+
+//        viewM.postConcat(rotateM)
+        viewM.postRotate(90f)
+//        viewM.postConcat(rotateM)
+
         val translateM: Matrix = Matrix()
-        val dx: Float = 0f
-        val dy: Float = (mImageView!!.measuredHeight - source.height) / 2f
+        val dx: Float = (mImageView!!.measuredWidth) / 2f
+        val dy: Float = (mImageView!!.measuredHeight) / 2f
         translateM.postTranslate(dx, dy)
-
-
-        val mapM: Matrix  = mImageView!!.getImageMatrix()
-        val viewRect: RectF = RectF(0f, 0f, measureWidth.toFloat(), measureHeight.toFloat())
-        val drawableRect: RectF = RectF(0f, 0f, source.width.toFloat(), source.height.toFloat())
-        mapM.setRectToRect(drawableRect, viewRect, Matrix.ScaleToFit.START);
-        mapM.postRotate(90f)
         // M' = T(dx, dy) * M, the M matrix takes effect first and then the translate matrix.
-        mapM.postTranslate(dx, dy)
-        mImageView!!.setImageMatrix(mapM)
-//        mImageView?.setImageMatrix(matrix)
+//        viewM.postConcat(translateM)
+        viewM.postTranslate(dx, dy)
+        mImageView!!.setImageMatrix(viewM)
         mImageView?.setImageBitmap(source)
     }
 
